@@ -1,34 +1,43 @@
-# 🏦 Credit Scoring Avanzado & Arquitectura MLOps
-**Círculo de Ciencia de Datos y Econometría (CCDE) - UNMSM**  
-*Área de Proyectos de Ciencia de Datos*
+# 📊 Área de Proyectos: Ciencia de Datos
+**Círculo de Ciencia de Datos y Econometría (CCDE) - UNMSM**
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-orange?logo=scikit-learn&logoColor=white)
-![Optuna](https://img.shields.io/badge/Optuna-Bayesian_Optimization-blueviolet)
-![Status](https://img.shields.io/badge/Status-Completado-success)
+> *"De la teoría en el aula al modelo en producción."*
 
-## 📌 Descripción del Proyecto
-Este es el proyecto inaugural del área de Ciencia de Datos del CCDE. Nuestro objetivo no es solo entrenar un modelo predictivo, sino simular el flujo de trabajo riguroso de un analista cuantitativo en el sector financiero. 
+Bienvenido al repositorio oficial del **Área de Proyectos de Ciencia de Datos** del CCDE. Este espacio funciona como nuestro "Laboratorio Core", donde alojamos el código fuente, los datasets y la documentación técnica de todas nuestras iniciativas aplicadas.
 
-Hemos desarrollado un sistema de clasificación para la aprobación de créditos (Credit Scoring) comparando el estándar regulatorio de la banca tradicional (Regresión Logística + Weight of Evidence) frente a un algoritmo de Machine Learning de mayor complejidad (Random Forest Classifier).
+## 🎯 Nuestro Propósito
+El objetivo de este repositorio no es la simple experimentación académica, sino la **simulación de entornos corporativos y de políticas públicas reales**. Desarrollamos proyectos estructurados (de extremo a extremo) orientados a resolver problemas de negocio mediante Machine Learning, Inteligencia Artificial y flujos de trabajo MLOps.
 
-## 🚀 Puntos Fuertes de Ingeniería (Tech Highlights)
-A diferencia de los enfoques académicos tradicionales, este proyecto implementa estándares de la industria (MLOps Base):
-* **Prevención Absoluta de Data Leakage:** Uso de `Pipeline` y `ColumnTransformer` de Scikit-Learn para aislar los conjuntos de entrenamiento y prueba.
-* **Transformadores Personalizados:** Creación de clases propias heredando de `BaseEstimator` y `TransformerMixin` para automatizar la generación de ratios financieros y la sumatoria de activos.
-* **Algoritmia WoE (Weight of Evidence):** Implementación de un codificador dinámico que selecciona variables basado en el *Information Value (IV)*.
-* **Optimización Bayesiana:** Búsqueda eficiente de hiperparámetros utilizando la librería `Optuna` bajo validación cruzada estratificada.
+Priorizamos:
+- **Código Limpio y Eficiente:** Evitamos los notebooks desordenados. Promovemos el uso de funciones, clases y programación orientada a objetos (POO).
+- **Prevención de Fuga de Datos:** Uso riguroso de `Pipelines` y validaciones cruzadas.
+- **Enfoque de Negocio:** Cada modelo debe traducirse en *insights* accionables.
 
-## 📊 Nota Analítica: El "Problema" de las Métricas Perfectas
-Al ejecutar este notebook, los modelos alcanzan un ROC-AUC superior a **0.99**. En el mundo real del riesgo crediticio, esto es una señal de alerta. 
+## 🗂️ Estructura del Repositorio
+Cada iniciativa se desarrolla en una carpeta independiente con su propio entorno, datasets y documentación.
 
-A través de nuestro Análisis Exploratorio de Datos (EDA), diagnosticamos la causa: el conjunto de datos (proveniente de Kaggle) es de naturaleza sintética. La variable `cibil_score` (historial crediticio) fue generada con una regla de separación casi determinista (scores < 550 garantizan rechazo). **La lección aquí es metodológica:** la arquitectura del código es impecable y está lista para producción, pero el analista de datos siempre debe cuestionar la naturaleza de su materia prima.
+| Directorio | Descripción | Estado | Herramientas Clave |
+| :--- | :--- | :---: | :--- |
+| `01_proy_cd_credit_scoring/` | Sistema de clasificación de riesgo crediticio comparando Regresión Logística (WoE) vs. Random Forest. | 🟢 Completado | `Scikit-Learn`, `Optuna`, `MLOps` |
+| `02_prediccion_demanda/` | *(Próximamente)* Modelo de proyección de demanda para sector retail. | ⚪ Planificado | `XGBoost`, `Pandas` |
+| `03_pricing_inmobiliario/` | *(Próximamente)* Algoritmo de valuación de activos utilizando datos geolocalizados. | ⚪ Planificado | `GeoPandas`, `ML` |
 
-## 📁 Estructura del Repositorio
-```text
-01_proy_cd_credit_scoring/
-│
-├── loan_approval_dataset.csv       # Dataset original (Kaggle)
-├── loan_prediction_final.ipynb     # Notebook con EDA, Ingeniería de Variables y Modelos
+## 🛠️ Stack Tecnológico
+Nuestro equipo trabaja principalmente con el siguiente ecosistema:
+- **Manipulación de Datos:** `Pandas`, `NumPy`
+- **Machine Learning & MLOps:** `Scikit-Learn`, `XGBoost`, `Joblib`
+- **Optimización:** `Optuna`
+- **Visualización:** `Matplotlib`, `Seaborn`
+
+## 👥 Metodología de Trabajo (Para Miembros)
+Si eres miembro del CCDE y vas a colaborar en este repositorio, seguimos el flujo de trabajo ágil estándar de la industria tecnológica:
+1. **Nunca trabajes en la rama `main`:** Crea una rama (`branch`) con tu nombre o el de tu tarea (ej. `feat/limpieza-datos-credito`).
+2. **Control de Versiones:** Realiza *commits* descriptivos detallando qué cambios hiciste.
+3. **Revisión de Código:** Sube tus cambios y abre un *Pull Request* (PR) para que los Directores del área validen la eficiencia de tu código antes de fusionarlo al proyecto principal.
+
+---
+**¿Quieres saber más de nosotros?**  
+🔗 [Visita nuestra página en LinkedIn](#) *(Nota: Colocar aquí el link cuando la creen)*  
+✉️ Contacto: ccde.unmsm@gmail.com
 ├── credit_scoring_pipeline.joblib  # Pipeline final serializado (Listo para Producción)
 └── README.md                       # Documentación del proyecto
